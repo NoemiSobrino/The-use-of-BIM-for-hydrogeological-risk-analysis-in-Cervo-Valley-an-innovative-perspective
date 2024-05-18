@@ -5,11 +5,9 @@ The GitHub account is organized in two different main folders. They are 2D map a
 
 _2D MAP_
 
-Three subfolders.
+Two subfolders.
 
-  _2D Piedmont web map_
-
-  _2D Cervo Valley web map_
+  _Codes_
   
   _Representative video of the maps_
 
