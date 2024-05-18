@@ -3,7 +3,7 @@ Master's degree thesis repository.
 
 The GitHub account is organized in two different main folders. They are 2D map and 3D map. 
 
-_2D map_
+_2D MAP_
 
 Three subfolders.
 
@@ -13,4 +13,4 @@ Three subfolders.
   
   _Representative video of the maps_
 
-_3D map_
+_3D MAP_
