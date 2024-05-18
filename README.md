@@ -8,7 +8,8 @@ _2D MAP_
 Two subfolders.
 
   _Codes_
-  
+
+  In this folde all the codes described in the Master thesis are present. The codes have the same name as cited in the thesis. 
   _Representative video of the maps_
 
 _3D MAP_
