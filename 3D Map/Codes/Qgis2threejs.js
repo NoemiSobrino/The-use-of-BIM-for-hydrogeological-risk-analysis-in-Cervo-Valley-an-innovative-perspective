@@ -4659,7 +4659,7 @@ async function plotPtotDataForDate(res) {
 			labels: res.data.results.map((x) => x.data),
 			datasets: [
 				{
-					label: `RAINFALL in ${res.location} from ${res.dates.min_date} to ${res.dates.max_date}`,
+					label: `RAINFALL in ${res.location} from ${res.dates.min_date} to ${res.dates.max_date} [mm]`,
 					data: res.data.results.map((x) => x.ptot),
 					backgroundColor: "blue",
 				},
