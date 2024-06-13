@@ -1,27 +1,22 @@
-#requests serve per effettuare chiamate http
+#requests makes https calls
 import requests
-#serve per creare il grafico (attualmente commentato perché ursto chartJs)
-import matplotlib.pyplot as plt
-from matplotlib.dates import DayLocator
-#Permette di utilizzare le date
+#It allows to use dates
 from datetime import datetime
-#Crea un server virtuale per eseguire la chiamata ad ARPA
+#Creates a virtual server to make the API call to ARPA website
 from flask import Flask, request
-#Permette di bypassare il cors origin del server per la chiamata esguita dal js
+#Remove the CORS Origin mechanism for the API call made by the JS file
 from flask_cors import cross_origin
-#Permette di calcolare una data inferiore passando al mese precedente e non accetta valori = a 0
+#It calculates the minimum date time moving to the previous month without considering values = to 0
 from dateutil.relativedelta import relativedelta
-import io
-import base64
-import json
 
-# Flask permette di far comunicare il server python con la mappa in index.html
-# Inizialisso la classe Flask
+
+# Flask allows the communication between the virtual Python server and the web map with index.hatml
+# Initialization of Flask class
 app = Flask(__name__)
 
-# Definisco la rotta da contattare tramite JS
+# Define the contact path for the API call in the JS
 @app.route("/get_pluviometer")
-# Disattivo il cross origin così da avere due server separati, uno per le APIs e l'altro per la mappa
+# Deactivate the CORS origin. In that way I have two different servers, one for the API call and one for the map.
 @cross_origin()
 
 # Make the API call to the ARPA Piemonte website
