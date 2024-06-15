@@ -14,9 +14,9 @@ from dateutil.relativedelta import relativedelta
 # Initialization of Flask class
 app = Flask(__name__)
 
-# Define the contact path for the API call in the JS
+# Define the route for the API call in the JS file
 @app.route("/get_pluviometer")
-# Deactivate the CORS origin. In that way I have two different servers, one for the API call and one for the map.
+# Deactivate the CORS origin. In that way I have two different servers, one for the API call and one for the map and they can communicate because I deactivated the CORS mechanism
 @cross_origin()
 
 # Make the API call to the ARPA Piemonte website
@@ -37,8 +37,8 @@ def call_API():
 
     # Make the GET request to the ARPA Piemonte API documentation
     try:
-        response = requests.get(arpa_api_url)
-        response.raise_for_status()  # create an exception if the request has a negative result
+        response = requests.get(arpa_api_url) # take the response from the API call made in ARPA Piemonte website
+        response.raise_for_status()  # create an error if the request has a negative result
         data = response.json()  # conversion of the JSON response into a Python dictionary
         # Plot the data
         if 'results' in data:
@@ -46,10 +46,10 @@ def call_API():
             return {'data': data, 'location': location, 'dates': reqDates}, 200
         else:
             # Create an error if no rainy days data are found
-            print(f"Nessun dato di ptot trovato dalla data: {reqDates['min_date']} alla data: {reqDates['max_date']}")
+            print(f"No precipitation (ptot) data found from: {reqDates['min_date']} to: {reqDates['max_date']}")
     except requests.exceptions.RequestException as e:
-        print("Errore durante la richiesta:", e)
+        print("Request error:", e)
 
-# Debug modality on
+# Debug modality on. If some errors occur, they are visualized in the terminal
 if __name__ == "__main__":
     app.run(debug=True)
