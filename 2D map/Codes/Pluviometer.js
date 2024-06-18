@@ -12,7 +12,7 @@ async function getPtotDataForDate(fk_id_punto_misura_meteo, location) {
     );
     // Save the response and converts it into a JSON object. This conversion is necessary to make possible the interpretation of the data into the JS
     const res = JSON.parse((await response.text()).toString());
-    if (res.data.results) { // res should have an attribute 'data' (that indicates the day) that should have an attribute 'results' (that indicates the value of ptot) in the API call
+    if (res.data.results) { // res should have an attribute 'data' that should have an attribute 'results' in the API call
       // If a response is available, I give it to the function caller
       return res;
     } else {
