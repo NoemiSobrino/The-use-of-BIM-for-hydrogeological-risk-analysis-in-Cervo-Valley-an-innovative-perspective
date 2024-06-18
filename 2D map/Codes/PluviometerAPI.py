@@ -41,14 +41,15 @@ def call_API():
         response.raise_for_status()  # create an error if the request has a negative result
         data = response.json()  # conversion of the JSON response into a Python dictionary
         # Plot the data
-        if 'results' in data:
+        if 'results' in data: 
             location = request.args.get('location')
             return {'data': data, 'location': location, 'dates': reqDates}, 200
         else:
             # Create an error if no rainy days data are found
             print(f"No precipitation (ptot) data found from: {reqDates['min_date']} to: {reqDates['max_date']}")
+    # For any error (with the exception of missing ptot data) give a feedback about the type of the error
     except requests.exceptions.RequestException as e:
-        print("Request error:", e)
+        print("Request error:", e) 
 
 # Debug modality on. If some errors occur, they are visualized in the terminal
 if __name__ == "__main__":
